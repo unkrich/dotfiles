@@ -1,0 +1,81 @@
+The purpose of this script is to install most of the applications and tooling that I have come to use and expect on my local MacOS machine.
+
+- Downloads
+    - Installed, no sign in
+        - Dash (no docs by default)
+        - Docker
+        - Discord
+        - Linear
+        - Microsoft Suite
+        - Ledger Live
+        - Zoom
+        - Logitech options (needs accessibility permissions)
+        - Cron
+        - Notion
+        - Superhuman
+        - Slack
+        - Private internet access
+        - Zappy?
+    - Installed, done
+        - Postman
+        - PostgreSQL
+        - PGAdmin4
+        - Chrome
+        - iTerm2
+        - OBS
+        - kicad
+        - Paste app
+        - Muzzle
+    - Lumina (webcam)
+- Settings
+    - Remap caps lock to control
+    - Turn off natural scroll direction for bluetooth mouse
+    - Done
+            - Change key repeat / delay to be fastest
+            - Pin Apps
+                - Chrome
+                - iTerm
+                - Notion
+                - Slack
+                - Messages
+                - Me
+            - Move dock to left hand side
+                - Automatically hide - use script to make hide/show instant
+- Languages/environments
+    - Done
+        - Node
+        - Ruby
+        - Python
+        - Rust
+        - Java
+        - Clojure
+    - Install 
+        - npm
+        - React / react-scripts
+        - Typescript
+- Dev Tools
+    - Done, not logged in
+        - Heroku
+        - Parity
+        - GitHub / gh
+- CLI
+    - Done, not logged in
+        - awscli
+    - Done
+        - terraform
+        - packer
+        - tmux
+        - nvim
+        - zsh
+- Dot files
+    - tmux.conf
+    - .nvim
+    - .zshrc
+    - Install docker
+- Chrome plugins?
+    - Vimium
+    - React Dev tools
+- yabai setup
+
+- Slack communities - manual
+- Discord communities - manual

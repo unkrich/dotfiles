@@ -35,29 +35,35 @@ echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.zshrc
 source ~/.zshrc 
 
 # Desktop applications
-brew install —cask iterm2
+brew install --cask iterm2
 brew install --cask google-chrome
-brew install —cask notion
+brew install --cask notion
 brew install --cask slack
 brew install --cask discord
 brew install --cask spotify
 brew install --cask cron
-brew install —cask postman
-brew install —cask zoom
-brew install —cask linear-linear
-brew install —cask microsoft-office
-brew install —cask ledger-live
-brew install —cask kicad
-brew install —cask private-internet-access
-brew install —cask obs
+brew install --cask postman
+brew install --cask zoom
+brew install --cask linear-linear
+brew install --cask microsoft-office
+brew install --cask ledger-live
+brew install --cask kicad
+brew install --cask private-internet-access
+brew install --cask obs
+brew install --cask zappy
+brew install --cask muzzle
 brew install postgresql
-brew install —cask pgadmin4
+brew install --cask pgadmin4
 brew install --cask docker
 brew install docker-compose
 brew install homebrew/cask-drivers/logitech-options
 
+# Mac App Store - must be logged into Apple account
+brew install mas
+mas install 967805235 # Paste App - Clipboard Manager
+
 # Unix
-brew install universal-ctags/universal-ctags/universal-ctags —HEAD
+brew install universal-ctags/universal-ctags/universal-ctags --HEAD
 brew install openssl
 brew install rcm # https://thoughtbot.com/upcase/videos/manage-and-share-your-dotfiles-with-rcm
 brew install tmux
@@ -73,7 +79,7 @@ brew install gh
 brew tap heroku/brew
 brew install heroku/brew/heroku
 brew unlink heroku
-brew link —force heroku
+brew link --force heroku
 brew tap paritytech/paritytech 
 brew install parity
 
@@ -96,7 +102,7 @@ echo "source /opt/homebrew/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
 echo "source /opt/homebrew/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
 echo "chruby ruby-3.1.2" >> ~/.zshrc
 source ~/.zshrc
-gem update —system 
+gem update --system 
 gem install rails
 gem install bundler
 
@@ -116,11 +122,18 @@ echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH' >> ~/.zshrc
 brew install clojure/tools/clojure
 brew install leiningen
 
-# Python
-brew install python
-python3 -m pip install --upgrade setuptools
-python3 -m pip install --upgrade pip
-python3 -m pip install virtualenv
+# Python 2 (weird after Monterey)
+brew install pyenv
+pyenv install 2.7.18
+sudo mkdir -p /usr/local/bin
+ln -s "${HOME}/.pyenv/versions/2.7.18/bin/python2.7" "/usr/local/bin/python"
+
+# Python3 (may be installed by default and this may mess things up)
+pyenv install 3.9.2
+# brew install python
+# python3 -m pip install --upgrade setuptools
+# python3 -m pip install --upgrade pip
+# python3 -m pip install virtualenv
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -150,10 +163,23 @@ osascript -e "tell application \"System Events\" to set the autohide of the dock
 osascript -e "tell application \"System Events\" to tell dock preferences to set screen edge to left"
 defaults write com.apple.Dock autohide-delay -float 0.0001; killall Dock
 
+# Change pinned apps
+brew install --cask hpedrorodrigues/tools/dockutil
+dockutil --remove all
+dockutil --add /Applications/Google\ Chrome.app/
+dockutil --add /System/Applications/Messages.app/
+dockutil --add /Applications/Cron.app/
+dockutil --add /Applications/Superhuman.app/
+dockutil --add /Applications/Zoom.app/
+dockutil --add /Applications/Slack.app/
+dockutil --add /Applications/Notion.app/
+dockutil --add /Applications/iTerm.app/
+dockutil --add /System/Applications/Notes.app/
+dockutil --add /System/Applications/System\ Preferences.app/
 
-
-
-
+# Keyboard delay / repeat
+defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
 
 if [ ! -d ~/.oh-my-zsh ]; then
