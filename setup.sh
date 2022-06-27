@@ -189,3 +189,90 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 
 touch ~/.osx-bootstrapped.txt
+
+# Set Google Chrome as default browser and then TODO: close it again
+open -a "Google Chrome" --args --make-default-browser
+
+
+# TODO:
+- System
+        - Disable ask siri
+        - Check spotlight options (disable the bad stuff)
+        - Scroll directions
+        - Disable dictionary lookup
+        - Change default location of screenshots saved
+        - General: Expand save and print panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+        - Finder: Show the ~/Library folder
+chflags nohidden ~/Library
+        - Chrome: Disable the all too sensitive backswipe on Trackpads and Magic Mice
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
+        - Chrome: Use the system print dialog and expand dialog by default
+defaults write com.google.Chrome DisablePrintPreview -bool true
+defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
+
+
+
+- Finder
+        - Preferences → show filename extensions
+        - Enable showing dotfiles (just hold Cmd + Shift + . (dot) in a Finder window)
+        - Show path bar in footer for easier navigation 
+        - Prune the excessive sidebar bookmarks
+        - create “Work” folder and pin it
+- Chrome extensions
+        - paywall blocker
+        - 1pass
+        - react devtools
+- Terminal
+        - copy dotfiles
+        - consider warp
+        - zsh theme install
+
+- login to github cli
+- prevent apple music from launching
+brew install --cask notunes
+
+- consider `tig`
+- consider https://github.com/rupa/z
+
+- inspiration:
+        - https://github.com/pivotal/workstation-setup
+        - https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+        - https://github.com/nicknisi/dotfiles
+        - https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/?ck_subscriber_id=591519942
+        - https://github.com/minamarkham/formation
+
+netlify's 'ntl'?
+
+Set up Git
+Configure git to always ssh when dealing with https github repos
+git config --global url."git@github.com:".insteadOf https://github.com/
+Set Git to store credentials in Keychain
+git config --global credential.helper osxkeychain
+Set git display name and email
+if [ -n "$(git config --global user.email)" ]; then
+  echo "✔ Git email is set to $(git config --global user.email)"
+else
+  read -p 'What is your Git email address?: ' gitEmail
+  git config --global user.email "$gitEmail"
+fi
+
+if [ -n "$(git config --global user.name)" ]; then
+  echo "✔ Git display name is set to $(git config --global user.name)"
+else
+  read -p 'What is your Git display name (Firstname Lastname)?: ' gitName
+  git config --global user.name "$gitName"
+fi
+
+
+
+
+
