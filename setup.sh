@@ -42,5 +42,24 @@ sh macos/init.sh
 # TODO: Yabai, skhd
 
 # TODO: /box setup
+# https://wiki.nikiv.dev/backups/
+
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+# TODO: Update list
+for app in "Activity Monitor" \
+	"Dock" \
+	"Finder" \
+	"Google Chrome" \
+	"Messages" \
+	"Photos" \
+	"Twitter" \
+	"iCal"; do
+	killall "${app}" &> /dev/null
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
 
 touch ~/.osx-bootstrapped.txt
