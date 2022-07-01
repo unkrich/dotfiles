@@ -79,3 +79,10 @@ The purpose of this script is to install most of the applications and tooling th
 
 - Slack communities - manual
 - Discord communities - manual
+
+- inspiration:
+        - https://github.com/pivotal/workstation-setup
+        - https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+        - https://github.com/nicknisi/dotfiles
+        - https://www.taniarascia.com/setting-up-a-brand-new-mac-for-development/?ck_subscriber_id=591519942
+        - https://github.com/minamarkham/formation
