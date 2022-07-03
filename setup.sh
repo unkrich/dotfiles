@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+
+###################################
+# SETUP CHECKS                    #
+###################################
+
 if [ -f ~/.osx-bootstrapped.txt ]; then
   cat << EOF
 ~/.osx-bootstrapped.txt FOUND!
@@ -14,13 +19,21 @@ CURRDIR=`pwd`
 BREWINSTALLED=`which brew`
 XCODEINSTALLED=`which xcode-select`
 
-# Install Xcode
+
+###################################
+# XCODE                           #
+###################################
+
 if [[ ${XCODEINSTALLED} == "" ]]; then
   echo "Installing Xcode"
   xcode-select --install
 fi
 
-# Install zsh
+
+###################################
+# ZSH                             #
+###################################
+
 if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     rm ~/.zshrc
@@ -29,8 +42,23 @@ fi
 zsh
 # TODO: ZSH theme install
 
-sh brew/init.sh
-sh macos/init.sh
+
+###################################
+# HOMEBREW / APPS                 #
+###################################
+
+if [[ ${BREWINSTALLED} == "" ]]; then
+  echo "Installing homebrew and applications"
+  sh .homebrew
+fi
+
+
+###################################
+# MACCOS DEFAULTS                 #
+###################################
+
+sh .macos
+
 # TODO: sh git.sh
 
 # TODO: Install Chrome Extensions
@@ -43,6 +71,8 @@ sh macos/init.sh
 
 # TODO: /box setup
 # https://wiki.nikiv.dev/backups/
+
+# TODO: Automatically start tmux on opening terminal (automatically save tmux on exit of terminal?)
 
 
 ###############################################################################

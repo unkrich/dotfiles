@@ -16,5 +16,3 @@ else
   read -p 'What is your Git display name (Firstname Lastname)?: ' gitName
   git config --global user.name "$gitName"
 fi
-
-
