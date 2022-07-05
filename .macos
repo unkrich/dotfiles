@@ -14,9 +14,6 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-# iMessage - Disable smart quotes as it’s annoying for messages that contain code
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
-
 # Change default location of screenshots saved
 mkdir ~/Pictures/Screenshots
 defaults write com.apple.screencapture location ~/Pictures/Screenshots
@@ -98,6 +95,9 @@ defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
+# iMessage - Disable smart quotes as it’s annoying for messages that contain code
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
@@ -114,13 +114,12 @@ defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 ###################################
 
 # Change pinned apps
-brew install --cask hpedrorodrigues/tools/dockutil
 dockutil --remove all
 dockutil --add /Applications/Google\ Chrome.app/
 dockutil --add /System/Applications/Messages.app/
 dockutil --add /Applications/Cron.app/
 dockutil --add /Applications/Superhuman.app/
-dockutil --add /Applications/Zoom.app/
+dockutil --add /Applications/zoom.us.app/
 dockutil --add /Applications/Slack.app/
 dockutil --add /Applications/Notion.app/
 dockutil --add /Applications/iTerm.app/
@@ -214,6 +213,6 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 # TODO: Customize toolbar to remove extra icons
 # TODO: Prune the excessive sidebar bookmarks
 # TODO: create “box” folder and pin it
-
+# TODO: Reverse external mouse scroll
 
 

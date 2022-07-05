@@ -50,6 +50,7 @@ zsh
 if [[ ${BREWINSTALLED} == "" ]]; then
   echo "Installing homebrew and applications"
   sh .homebrew
+  sh .dev
 fi
 
 

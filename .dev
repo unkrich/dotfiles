@@ -1,0 +1,85 @@
+###################################
+# RUBY - SILICON                  #
+###################################
+
+brew install chruby ruby-install
+ruby-install ruby
+echo "source /opt/homebrew/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
+echo "source /opt/homebrew/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
+echo "chruby ruby-3.1.2" >> ~/.zshrc
+source ~/.zshrc
+gem update --system 
+gem install rails
+gem install bundler
+
+
+###################################
+# JAVA / CLOJURE                  #
+###################################
+
+brew install java
+echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH' >> ~/.zshrc
+brew install clojure/tools/clojure
+brew install leiningen
+
+
+###################################
+# NODE / JS                       #
+###################################
+
+brew install nvm
+mkdir ~/.nvm
+# TODO: Move next few lines to zshrc
+export NVM_DIR="~/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+echo "export NVM_DIR='~/.nvm'" >> ~/.zshrc
+nvm install node 
+brew install yarn
+
+
+###################################
+# CRYPTO                          #
+###################################
+
+brew tap paritytech/paritytech 
+brew install parity
+npm install -g truffle
+
+
+# TODO (weird after Monterey)
+###################################
+# PYTHON 2                        #
+###################################
+
+brew install pyenv
+pyenv install 2.7.18
+sudo mkdir -p /usr/local/bin
+ln -s "${HOME}/.pyenv/versions/2.7.18/bin/python2.7" "/usr/local/bin/python"
+
+
+# Python3 (may be installed by default and this may mess things up)
+###################################
+# PYTHON 3                        #
+###################################
+
+pyenv install 3.9.2
+# brew install python
+# python3 -m pip install --upgrade setuptools
+# python3 -m pip install --upgrade pip
+# python3 -m pip install virtualenv
+
+###################################
+# RUST                            #
+###################################
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.zshrc
+
+
+###################################
+# MISC.                           #
+###################################
+
+# Netlify
+npm install netlify-cli -g
