@@ -2,15 +2,8 @@
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  packer_bootstrap = vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
-
-vim.cmd [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]]
 
 local use = require('packer').use
 require('packer').startup(function()
@@ -43,10 +36,21 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
 
+vim.cmd [[
+  augroup Packer
+    autocmd!
+    autocmd BufWritePost init.lua PackerCompile
+  augroup end
+]]
+
 -- Fixes issue with gutentags
-vim.g.gutentags_ctags_executable = '/opt/homebrew/Cellar/universal-ctags/p5.9.20211024.0/bin/ctags'
+vim.g.gutentags_ctags_executable = '/opt/homebrew/Cellar/universal-ctags/HEAD-2052bbf/bin/ctags'
 
 -- Custom changes
 vim.cmd('set expandtab')
