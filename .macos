@@ -30,6 +30,20 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
+# Disable animations when opening and closing windows.
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# Accelerated playback when adjusting the window size.
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# Dont rearrange spaces based on recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Enable bluetooth menu in status bar
+defaults write ~/Library/Preferences/ByHost/com.apple.controlcenter.plist Bluetooth -int 18
+
+killall Dock
+
 
 ###################################
 # FINDER                          #
@@ -42,7 +56,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write -g AppleShowAllFiles -bool true
 
 # Show full path in Finder
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true; killall Finder
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
@@ -69,11 +83,10 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
-
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+killall Finder
 
 ## TODO: Change transparency of dotfiles
 ## TODO: Prevent dialog "starts with '.' is reserved for the system"
@@ -108,6 +121,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
+# Set caps lock to control
+osascript scripts/capslocktoctl.scpt
+
 
 ###################################
 # DOCK                            #
@@ -130,7 +146,7 @@ dockutil --add /System/Applications/System\ Preferences.app/
 osascript -e "tell application \"System Events\" to tell dock preferences to set screen edge to left"
 
 # Remove the auto-hiding Dock delay
-defaults write com.apple.Dock autohide-delay -float 0.0001; killall Dock
+defaults write com.apple.Dock autohide-delay -float 0.0001
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 # Automatically hide and show the Dock
