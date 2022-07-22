@@ -105,6 +105,9 @@ brew install coreutils
 
 # Databases
 brew install postgresql # postgres?
+brew services start postgresql
+# /usr/local/opt/postgres/bin/createuser -s postgres - non-M1
+/opt/homebrew/bin/createuser -s postgres # M1 only
 brew install redis
 brew install sqlite3
 brew install mysql
