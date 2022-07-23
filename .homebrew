@@ -70,6 +70,7 @@ brew install --cask hpedrorodrigues/tools/dockutil
 # Mac App Store - must be logged into Apple account
 brew install mas
 mas install 967805235 # Paste App - Clipboard Manager
+mas install 409201541 # Pages App
 
 
 ###################################
