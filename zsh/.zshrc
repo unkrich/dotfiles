@@ -61,3 +61,6 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_ssh_agent;
 fi
+
+# Add custom bin scripts
+export PATH=~/bin:$PATH
