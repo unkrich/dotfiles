@@ -1,0 +1,8 @@
+.cache/
+.DS_Store
+.idea/
+*.swp
+built-in-stubs.jar
+dumb.rdb
+.vscode/
+npm-debug.log

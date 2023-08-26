@@ -1,0 +1,26 @@
+[alias]
+  br = "branch"
+  ci = "commit"
+  cm = "commit -m"
+  co = "checkout"
+  cob = "checkout -b"
+  cp = "commit -p"
+  d = "diff"
+
+[core]
+  editor = "nvim"
+  whitespace = "trailing-space,space-before-tab"
+  ignorecase = false
+
+[credential]
+  helper = "osxkeychain"
+
+[protocol "keybase"]
+  helper = "osxkeychain"
+
+[pull]
+  rebase = "true"
+
+[user]
+  email = "kevin@unkri.ch"
+  name = "Kevin Unkrich"

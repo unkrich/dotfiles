@@ -8,6 +8,9 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Necessary for correct tmux input
+export TERM=xterm
+
 # Homebrew
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
@@ -32,6 +35,9 @@ export NODE_OPTIONS=--openssl-legacy-provider
 
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # Start SSH Agent
 #----------------------------
