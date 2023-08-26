@@ -15,6 +15,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use 'williamboman/mason.nvim'
+
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -28,7 +30,6 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
       -- lualine-nvim
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-      -- null-ls-nvim
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
@@ -48,7 +49,11 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
       -- vim-markdown
-      -- vim-prettier
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim') 
+
+  use('theprimeagen/harpoon')
+  use('mbbill/undotree')
 
 
   -- use 'vim-airline/vim-airline' -- Git branch displayed
