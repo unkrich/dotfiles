@@ -14,7 +14,8 @@ require('telescope').setup {
 
       file_ignore_patterns = {
         "node_modules",
-        "build"
+        "build",
+        ".git"
       }
     },
 }
@@ -23,5 +24,5 @@ require('telescope').load_extension('fzy_native')
 
 --Add leader shortcuts
 vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').git_files()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sp', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
