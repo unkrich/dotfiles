@@ -25,14 +25,15 @@ return require('packer').startup(function(use)
   use 'editorconfig/editorconfig-vim'
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use 'ellisonleao/gruvbox.nvim'
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
       -- lualine-nvim
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use 'nvim-treesitter/nvim-treesitter'
+  use ({
+    'nvim-treesitter/nvim-treesitter',
+  })
   -- Additional textobjects for treesitter
   use({
     "nvim-treesitter/nvim-treesitter-textobjects",
