@@ -1,0 +1,2 @@
+ctrl - left : /opt/homebrew/bin/yabai -m space --focus prev
+ctrl - right : /opt/homebrew/bin/yabai -m space --focus next
