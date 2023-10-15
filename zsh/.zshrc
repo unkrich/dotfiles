@@ -68,5 +68,7 @@ else
   start_ssh_agent;
 fi
 
+eval $(thefuck --alias)
+
 # Add custom bin scripts
 export PATH=~/bin:$PATH
