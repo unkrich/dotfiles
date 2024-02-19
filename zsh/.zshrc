@@ -36,6 +36,9 @@ export NODE_OPTIONS=--openssl-legacy-provider
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Python
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
 # direnv
 eval "$(direnv hook zsh)"
 
@@ -72,3 +75,6 @@ eval $(thefuck --alias)
 
 # Add custom bin scripts
 export PATH=~/bin:$PATH
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
