@@ -9,7 +9,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Necessary for correct tmux input
-export TERM=xterm
+export TERM=alacritty
 
 # Homebrew
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"

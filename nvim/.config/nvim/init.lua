@@ -1,2 +1,2 @@
-require('plugins')
-require('base')
+require("unkrich.core")
+require("unkrich.lazy")
