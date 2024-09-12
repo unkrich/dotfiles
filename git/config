@@ -24,3 +24,6 @@
 [user]
   email = "kevin@unkri.ch"
   name = "Kevin Unkrich"
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
