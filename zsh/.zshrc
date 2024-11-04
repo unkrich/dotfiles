@@ -1,5 +1,6 @@
 ## ALIASES ##
 alias g="git"
+alias gs="git status"
 
 ## ZSH SETUP ##
 export ZSH=$HOME/.oh-my-zsh
