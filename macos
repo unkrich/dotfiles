@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="zsh,nvim,tmux,scripts,git,yabai,skhd,sketchybar,hammerspoon,alacritty"
+    STOW_FOLDERS="zsh,scripts,git,alacritty"
 fi
 
 if [[ -z $DOTFILES ]]; then
