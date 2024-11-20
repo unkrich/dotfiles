@@ -3,7 +3,7 @@
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="zsh,scripts,git,alacritty"
+    STOW_FOLDERS="zsh,scripts,git,alacritty,p10k"
 fi
 
 if [[ -z $DOTFILES ]]; then
