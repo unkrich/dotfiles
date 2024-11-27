@@ -1,0 +1,50 @@
+## Load scripting addition
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+
+### Global Settings
+
+
+### Spaces
+
+yabai -m config --space 1 layout stack
+yabai -m config --space 2 layout stack
+yabai -m config --space 3 layout stack
+
+for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 6)'); do
+  yabai -m space --destroy 7
+done
+
+function setup_space {
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx : $name"
+
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+
+  yabai -m space "$idx" --label "$name"
+}
+
+setup_space 1 Mail / Cal
+setup_space 2 Notes
+setup_space 3 Comms
+setup_space 4 Web
+setup_space 5 Code
+setup_space 6 other
+
+yabai -m rule --add app="^Superhuman$" space=^1
+yabai -m rule --add app="^Notion Calendar$" space=^1
+yabai -m rule --add app="^Linear$" space=^2
+yabai -m rule --add app="^Notion$" space=^2
+yabai -m rule --add app="^Discord$" space=^3
+yabai -m rule --add app="^Slack$" space=^3
+yabai -m rule --add app="^Arc$" space=^4
+yabai -m rule --add app="^iTerm2$" space=^5
+
+# yabai -m rule --add app="^Arc$" manage=off
+yabai -m rule --add app="^Zoom$" manage=off

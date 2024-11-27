@@ -1,0 +1,54 @@
+#!/usr/bin/env sh
+
+### Mode ###
+
+# add an on_enter command to the default mode
+:: default : /opt/homebrew/bin/yabai -m config active_window_border_color 0xff775759
+
+:: wm : /opt/homebrew/bin/yabai -m config active_window_border_color 0xff24ccaa
+
+# from 'default' mode, activate mode 'wm'
+ctrl - s ; wm
+
+# from 'wm' mode, activate mode 'default'
+wm < ctrl - s ; default
+wm < ctrl - c ; default
+wm < escape   ;  default
+
+
+### Navigate spaces ###
+
+ctrl - left : /opt/homebrew/bin/yabai -m space --focus prev
+ctrl - right : /opt/homebrew/bin/yabai -m space --focus next
+
+wm < n : /opt/homebrew/bin/yabai -m space --focus next; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < p : /opt/homebrew/bin/yabai -m space --focus prev; /opt/homebrew/bin/skhd -k 'ctrl - c'
+
+wm < 1 : /opt/homebrew/bin/yabai -m space --focus 1; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 2 : /opt/homebrew/bin/yabai -m space --focus 2; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 3 : /opt/homebrew/bin/yabai -m space --focus 3; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 4 : /opt/homebrew/bin/yabai -m space --focus 4; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 5 : /opt/homebrew/bin/yabai -m space --focus 5; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 6 : /opt/homebrew/bin/yabai -m space --focus 6; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 7 : /opt/homebrew/bin/yabai -m space --focus 7; /opt/homebrew/bin/skhd -k 'ctrl - c'
+
+wm < m : /opt/homebrew/bin/yabai -m space --focus 1; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 0x2B : /opt/homebrew/bin/yabai -m space --focus 2; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 0x2F : /opt/homebrew/bin/yabai -m space --focus 3; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 0x2C : /opt/homebrew/bin/yabai -m space --focus 4; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < 0x24 : /opt/homebrew/bin/yabai -m space --focus 5; /opt/homebrew/bin/skhd -k 'ctrl - c'
+
+wm < x : /opt/homebrew/bin/yabai -m window --close; /opt/homebrew/bin/skhd -k 'ctrl - c'
+
+wm < h : /opt/homebrew/bin/yabai -m window --focus west; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < j : /opt/homebrew/bin/yabai -m window --focus south; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < k : /opt/homebrew/bin/yabai -m window --focus north; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < l : /opt/homebrew/bin/yabai -m window --focus east; /opt/homebrew/bin/skhd -k 'ctrl - c'
+
+wm < left : /opt/homebrew/bin/yabai -m window --focus west; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < down : /opt/homebrew/bin/yabai -m window --focus south; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < up : /opt/homebrew/bin/yabai -m window --focus north; /opt/homebrew/bin/skhd -k 'ctrl - c'
+wm < right : /opt/homebrew/bin/yabai -m window --focus east; /opt/homebrew/bin/skhd -k 'ctrl - c'
+
+# cmd + ctrl - j  : /opt/homebrew/bin/yabai -m window south --stack $(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.id')
+# cmd + ctrl - k    : /opt/homebrew/bin/yabai -m window north --stack $(/opt/homebrew/bin/yabai -m query --windows --window | /opt/homebrew/bin/jq -r '.id')
